@@ -3,11 +3,19 @@ environments.staging = {
   port: 3000,
   envName: 'staging',
   secretKey: 'riyanalina',
+  maxChecks: 5,
+  twilio: {
+    fromPhone: '',
+  },
 };
 environments.production = {
   port: 4000,
   envName: 'production',
   secretKey: 'alinariyan',
+  maxChecks: 5,
+  twilio: {
+    fromPhone: '',
+  },
 };
 // determine which environment was passed
 const currentEnvironment =

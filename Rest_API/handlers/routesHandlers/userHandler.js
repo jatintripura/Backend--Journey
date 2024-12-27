@@ -201,7 +201,7 @@ handler._user.delete = (reqProperty, callback) => {
           }
         });
       } else {
-        callback(403, { error: 'Authentication failure' });
+        callback(400, { error: 'Authentication failure' });
       }
     });
   } else {
