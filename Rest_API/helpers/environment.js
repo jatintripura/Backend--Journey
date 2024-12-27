@@ -5,7 +5,9 @@ environments.staging = {
   secretKey: 'riyanalina',
   maxChecks: 5,
   twilio: {
-    fromPhone: '',
+    fromPhone: '+15005550006',
+    accountSid: 'ACfe32202f8e81bf2830d8cdb435284f4c',
+    authToken: '23cec7e690dbc35152a767eecea286b4',
   },
 };
 environments.production = {
@@ -14,7 +16,9 @@ environments.production = {
   secretKey: 'alinariyan',
   maxChecks: 5,
   twilio: {
-    fromPhone: '',
+    fromPhone: '+15005550006',
+    accountSid: 'ACfe32202f8e81bf2830d8cdb435284f4c',
+    authToken: '23cec7e690dbc35152a767eecea286b4',
   },
 };
 // determine which environment was passed

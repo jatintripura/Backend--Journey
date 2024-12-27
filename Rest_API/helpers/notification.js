@@ -24,6 +24,31 @@ notification.sendTwilioSms = (phone, msg, callback) => {
     };
     //stringify the payload
     const stringifyPayload = queryString.stringify(payload);
+    //configure the request details
+    const requestDetailsObject = {
+      hostNmae: 'api.twilio.com',
+      method: 'POST',
+      path: `/2010-04-01/Accounts/${twilio.accountSid}/Messages.json`,
+      auth: `${twilio.accountSid}:${twilio.authToken}`,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    };
+    //instans the request object
+    const req = https.request(requestDetailsObject, (res) => {
+      //get the status of the send request
+      const status = res.statusCode;
+      if (status === 200 || status === 2001) {
+        callback(false);
+      } else {
+        callback(`Status code return was ${status}`);
+      }
+    });
+    req.on('error', (e) => {
+      callback(e);
+    });
+    req.write(stringifyPayload);
+    req.end();
   } else {
     callback('Given parameters were missing or invalid');
   }
